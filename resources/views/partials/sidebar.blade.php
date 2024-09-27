@@ -39,7 +39,7 @@
           </a>
         </li>
         <li class="nav-item" >
-          <a href="javascript:void(0);" class="nav-link text-white" >
+          <a href="{{ auth()->user()->role === 'admin' ? route('tickets.index') : route('tickets.customer') }}" class="nav-link text-white @if ( $current === 'tickets.index' || $current === 'tickets.customer' ) active @endif" >
             <i class="fas fa-ticket" style="width: 1rem;" ></i>
             <span class="ps-2" >{{ __('View Tickets') }}</span>
           </a>
