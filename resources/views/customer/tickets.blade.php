@@ -44,9 +44,11 @@
                   </td>
                   <td class="d-none d-xl-table-cell" >{{ $ticket->created_at->diffForHumans() }}</td>
                   <td>
-                    <button class="btn btn-sm btn-warning" >
-                      <i class="fas fa-eye"></i>
-                    </button>
+                    @if ( $ticket->status === 'open' )
+                      <a href="{{ route('tickets.messages', $ticket->id) }}" class="btn btn-sm btn-warning" >
+                        <i class="fas fa-eye"></i>
+                      </a>
+                    @endif
                     <button class="btn btn-sm btn-danger" >
                       <i class="fas fa-trash-alt"></i>
                     </button>

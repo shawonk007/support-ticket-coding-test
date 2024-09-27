@@ -26,7 +26,7 @@ return new class extends Migration {
             $table->id();
             $table->foreignId('ticket_id')->unsigned();
             $table->foreignId('user_id')->unsigned();
-            $table->text('message');
+            $table->text('content');
             $table->boolean('is_read')->default(false);
             $table->timestamps();
             $table->softDeletes();

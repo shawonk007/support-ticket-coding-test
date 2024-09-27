@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\UserController;
@@ -21,6 +22,13 @@ Route::get('/', function () {
     return redirect()->route('login');
 });
 
+Route::middleware('auth')->group( function () {
+    Route::prefix('messages')->name('messages.')->group( function () {
+        Route::post('/send', [MessageController::class, 'send'])->name('send');
+        Route::get('/fetch/{ticketId}', [MessageController::class, 'fetch'])->name('fetch');
+    });
+});
+
 Route::middleware('auth', 'customer')->group( function () {
     Route::get('/dashboard', function () {
         $title = "Dashboard";
@@ -29,6 +37,7 @@ Route::middleware('auth', 'customer')->group( function () {
     Route::prefix('tickets')->name('tickets.')->group( function () {
         Route::get('/', [TicketController::class, 'tickets'])->name('customer');
         Route::post('/store', [TicketController::class, 'store'])->name('store');
+        Route::get('/{id}/messages', [MessageController::class, 'messages'])->name('messages');
     });
 });
 
@@ -44,6 +53,7 @@ Route::middleware('auth', 'admin')->prefix('admin')->group( function () {
         Route::get('/opened', [TicketController::class, 'opened'])->name('opened');
         Route::patch('/update/{id}', [TicketController::class, 'update'])->name('update');
         Route::patch('/closed/{id}', [TicketController::class, 'closed'])->name('closed');
+        Route::get('/{id}/messages', [MessageController::class, 'index'])->name('history');
     });
 });
 

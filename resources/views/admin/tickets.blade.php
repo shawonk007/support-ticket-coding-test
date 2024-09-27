@@ -46,9 +46,11 @@
                   </td>
                   <td class="d-none d-xl-table-cell" >{{ $ticket->created_at->diffForHumans() }}</td>
                   <td class="d-flex" >
-                    <button class="btn btn-sm btn-warning view me-2" data-ticket="{{ $ticket->title }}" data-code="{{ $ticket->code }}" data-description="{{ $ticket->description }}" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >
-                      <i class="fas fa-eye"></i>
-                    </button>
+                    @if ( $ticket->status === 'open' )
+                      <a href="{{ route('tickets.history', $ticket->id) }}" class="btn btn-sm btn-warning view me-2" >
+                        <i class="fas fa-eye"></i>
+                      </a>
+                    @endif
                     <form method="POST" action="{{ route('tickets.closed', $ticket->id) }}" >
                       @csrf
                       @method('patch')
@@ -74,35 +76,6 @@
       </div>
     </div>
   </section>
-
-  <x-partials.modal>
-    <div class="modal-header" >
-      <h1 class="modal-title fs-5" id="staticBackdropLabel" >{{ __('View Ticket') }}</h1>
-      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" ></button>
-    </div>
-    <div class="modal-body" >
-      <div class="row g-3" >
-        <div class="col-12" >
-          <label for="title" >
-            <strong>{{ __('Title') }}</strong>
-          </label>
-          <p id="title" ></p>
-        </div>
-        <div class="col-12" >
-          <label for="title" >
-            <strong>{{ __('Code') }}</strong>
-          </label>
-          <p id="code" ></p>
-        </div>
-        <div class="col-12" >
-          <label for="description" >
-            <strong>{{ __('Description') }}</strong>
-          </label>
-          <p id="description" ></p>
-        </div>
-      </div>
-    </div>
-  </x-partials.modal>
 
   <x-slot name="scripts" >
     <script>

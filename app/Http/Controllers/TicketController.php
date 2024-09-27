@@ -93,7 +93,7 @@ class TicketController extends Controller {
             ]);
             if ($ticket) {
                 Mail::to($ticket->customer->email)->send(new TicketResponseMail($ticket));
-                return back()->with('success', 'Ticket responsed successfully!!!');
+                return redirect()->route('tickets.index')->with('success', 'Ticket responsed successfully!!!');
             } else {
                 return back()->with('error', 'An unexpected error occurred');
             }

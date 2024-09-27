@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Message extends Model {
     use HasFactory, SoftDeletes;
 
-    protected $fillable = [ 'ticket_id', 'user_id', 'message', 'is_read' ];
+    protected $fillable = [ 'ticket_id', 'user_id', 'content', 'is_read' ];
 
     protected $hidden = [ 'is_read' ];
 
