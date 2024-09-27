@@ -1,0 +1,129 @@
+aside {
+  color: #ffffff;
+  background-color: #2f2f2f;
+}
+aside .profile {
+  display: none;
+}
+aside .profile img {
+  width: 150px;
+  width: 150px;
+}
+aside .profile h4 {
+  font-family: "Odibee Sans", cursive;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 2rem;
+}
+aside ul li a {
+  color: #ffffff;
+}
+
+main {
+  background-color: #f7f7f7;
+  position: relative;
+}
+
+footer {
+  font-size: 0.8rem;
+  position: absolute;
+  bottom: 0;
+  width: calc(100% - 2rem);
+  border-top: 1px solid #2f2f2f;
+}
+
+.auth-container {
+  background-color: #f7f7f7;
+}
+.auth-container .auth-box {
+  max-width: 400px;
+  width: 100%;
+}
+
+@media (min-width: 1280px) {
+  aside .profile img {
+    width: 150px;
+    height: 150px;
+    border: 5px solid #ffffff;
+  }
+}
+@media (min-width: 992px) {
+  aside {
+    width: 15rem;
+    height: 100vh;
+  }
+  aside .container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  aside .navbar-brand {
+    border-bottom: 2px solid white;
+  }
+  aside #navMenu {
+    display: flex;
+    flex-direction: column;
+  }
+  aside .profile {
+    display: block;
+    border-bottom: 3px solid white;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+  aside ul {
+    width: 100%;
+  }
+  main {
+    margin-left: 15rem;
+  }
+  .left {
+    text-align: left;
+  }
+  .right {
+    text-align: right;
+  }
+  .text-xl {
+    font-size: 1.35rem;
+  }
+}
+@media (max-width: 1279px) {
+  aside .profile img {
+    width: 130px;
+    height: 130px;
+    border: 5px solid #ffffff;
+  }
+  aside .profile h4 {
+    font-size: 1.75rem;
+  }
+}
+@media (max-width: 991px) {
+  aside .container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  aside .profile {
+    margin-top: 1.35rem;
+    margin-bottom: 1.35rem;
+  }
+  aside .profile img {
+    width: 100px;
+    height: 100px;
+    border: 3px solid #ffffff;
+  }
+  aside .profile h4 {
+    font-size: 1.5rem;
+  }
+  main {
+    margin-top: 3.5rem;
+  }
+}
+@media (max-width: 767px) {
+  aside .profile img {
+    width: 100px;
+    height: 100px;
+    border: 5px solid #ffffff;
+  }
+  aside .profile h4 {
+    font-size: 1.25rem;
+  }
+}/*# sourceMappingURL=styles.css.map */

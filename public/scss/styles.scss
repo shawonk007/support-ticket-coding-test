@@ -1,0 +1,175 @@
+$white: #ffffff;
+$bg-light: #f7f7f7;
+$bg-dark: #2f2f2f;
+
+aside {
+  color: $white;
+  background-color: $bg-dark;
+
+  .profile {
+    display: none;
+
+    img {
+        width: 150px;
+        width: 150px;
+    }
+
+    h4 {
+      font-family: 'Odibee Sans', cursive;
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 2rem;
+    }
+  }
+
+  ul {
+    li {
+      a {
+        color: $white;
+      }
+    }
+  }
+}
+
+main {
+  background-color: $bg-light;
+  position: relative;
+}
+
+footer {
+  font-size: 0.8rem;
+  position: absolute;
+  bottom: 0;
+  width: calc(100% - 2rem);
+  border-top: 1px solid $bg-dark;
+}
+
+.auth-container {
+  background-color: $bg-light;
+
+  .auth-box {
+    max-width: 400px;
+    width: 100%;
+  }
+}
+
+@media (min-width: 1280px) {
+  aside {
+    .profile {
+      img {
+        width: 150px;
+        height: 150px;
+        border: 5px solid $white;
+      }
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  aside {
+    width: 15rem;
+    height: 100vh;
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+    }
+
+    .navbar-brand {
+      border-bottom: 2px solid white;
+    }
+
+    #navMenu {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .profile {
+      display: block;
+      border-bottom: 3px solid white;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    ul {
+      width: 100%;
+    }
+  }
+
+  main {
+    margin-left: 15rem;
+  }
+
+  .left {
+    text-align: left;
+  }
+
+  .right {
+    text-align: right;
+  }
+
+  .text-xl {
+    font-size: 1.35rem;
+  }
+}
+
+@media (max-width: 1279px) {
+  aside {
+    .profile {
+      img {
+        width: 130px;
+        height: 130px;
+        border: 5px solid $white;
+      }
+
+      h4 {
+        font-size: 1.75rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  aside {
+    .container {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    .profile {
+      margin-top: 1.35rem;
+      margin-bottom: 1.35rem;
+
+      img {
+        width: 100px;
+        height: 100px;
+        border: 3px solid $white;
+      }
+
+      h4 {
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  main {
+    margin-top: 3.5rem;
+  }
+}
+
+@media (max-width: 767px) {
+  aside {
+    .profile {
+      img {
+        width: 100px;
+        height: 100px;
+        border: 5px solid $white;
+      }
+
+      h4 {
+        font-size: 1.25rem;
+      }
+    }
+  }
+}

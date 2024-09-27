@@ -1,52 +1,55 @@
-<x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
-        @csrf
+<x-layouts.guest>
 
-        <!-- Name -->
-        <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+  <x-slot name="title" >{{ $title ?: __('Sample Page') }}</x-slot>
+
+  <form method="POST" action="{{ route('register') }}" >
+    @csrf
+    <div class="row g-3" >
+      <div class="col-12" >
+        <div class="input-group mt-1" >
+          <span class="input-group-text rounded-0" id="name-icon" >
+            <i class="fas fa-user" ></i>
+          </span>
+          <input type="text" name="name" class="form-control rounded-0" id="name" placeholder="Enter your name" aria-label="name" aria-describedby="name-icon" />
         </div>
-
-        <!-- Email Address -->
-        <div class="mt-4">
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+      </div>
+      <div class="col-12" >
+        <div class="input-group mt-1" >
+          <span class="input-group-text rounded-0" id="email-icon" >
+            <i class="fas fa-envelope" ></i>
+          </span>
+          <input type="email" name="email" class="form-control rounded-0" id="email" placeholder="Enter your email" aria-label="email" aria-describedby="email-icon" />
         </div>
-
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+      </div>
+      <div class="col-12" >
+        <div class="input-group mt-1" >
+          <span class="input-group-text rounded-0" id="password-icon" >
+            <i class="fas fa-key" ></i>
+          </span>
+          <input type="password" name="password" class="form-control rounded-0" id="password" placeholder="Enter your password" aria-label="password" aria-describedby="password-icon" />
         </div>
-
-        <!-- Confirm Password -->
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
-
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                            type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+      </div>
+      <div class="col-12" >
+        <div class="input-group mt-1" >
+          <span class="input-group-text rounded-0" id="cpassword-icon" >
+            <i class="fas fa-key" ></i>
+          </span>
+          <input type="password" name="password_confirmation" class="form-control rounded-0" id="password_confirmation" placeholder="Confirm your password" aria-label="password_confirmation" aria-describedby="cpassword-icon" />
         </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary rounded-0 mt-4 w-100" >
+      <span>{{ $title ?: __('Submit') }}</span>
+    </button>
+  </form>
 
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
-            </a>
+  <x-slot name="bottom" >
+    <p class="pb-0 mb-0" >
+      <span>{{ __('Already have an account?') }}</span>
+      <a href="{{ route('login') }}" class="text-muted" >
+        <strong>{{ __('Login') }}</strong>
+      </a>
+    </p>
+  </x-slot>
 
-            <x-primary-button class="ms-4">
-                {{ __('Register') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+</x-layouts.guest>
