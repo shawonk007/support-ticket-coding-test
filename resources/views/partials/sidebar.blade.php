@@ -46,13 +46,13 @@
         </li>
         @if ( auth()->user()->role === 'admin' )
           <li class="nav-item" >
-            <a href="javascript:void(0);" class="nav-link text-white" >
+            <a href="{{ route('users.index') }}" class="nav-link text-white @if ( $current === 'users.index' ) active @endif" >
               <i class="fas fa-users" style="width: 1rem;" ></i>
               <span class="ps-2" >{{ __('Users & Members') }}</span>
             </a>
           </li>
           <li class="nav-item" >
-            <a href="javascript:void(0);" class="nav-link text-white" >
+            <a href="{{ route('customers.index') }}" class="nav-link text-white @if ( $current === 'customers.index' ) active @endif" >
               <i class="fas fa-user-tag" style="width: 1rem;" ></i>
               <span class="ps-2" >{{ __('Customers') }}</span>
             </a>
